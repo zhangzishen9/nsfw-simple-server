@@ -13,6 +13,7 @@ export class NsfwController {
     this.classifier = new NsfwImageClassifier();
   }
 
+  // @ts-ignore
   @Post('/classify', upload.single('image'))
   async classify(request: Request, response: Response) {
     if (!request.file) {
@@ -26,6 +27,7 @@ export class NsfwController {
     return response.json(data);
   }
 
+  // @ts-ignore
   @Post('/classify-many', upload.array('images', 10))
   async classifyMany(request: Request, response: Response) {
     if (!request.files || !request.files.length) {
